@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currency Converter Tool - USD, INR, EUR, GBP, JPY | YourBestTool</title>
+<meta name="description" content="Convert currencies instantly with our free offline Currency Converter. Convert USD, INR, EUR, GBP, JPY and more. Understand exchange rates, historical trends, and currency values.">
+<meta name="keywords" content="Currency Converter, USD to INR, INR to USD, EUR to USD, GBP to INR, Currency Exchange Rates, Offline Currency Converter, Foreign Exchange Calculator, Multi-Currency Converter">
+
+<!-- Schema.org JSON-LD for Currency Converter -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialCalculator",
+  "name": "Currency Converter Tool",
+  "url": "https://yourbesttool.com/currency-converter.html",
+  "description": "Convert USD, INR, EUR, GBP, JPY and more instantly with our offline currency converter. Ideal for travelers, online shopping, investments, and business payments.",
+  "applicationCategory": "FinanceApplication",
+  "creator": {
+    "@type": "Organization",
+    "name": "YourBestTool.com"
+  },
+  "softwareVersion": "1.0",
+  "operatingSystem": "Web",
+  "featureList": [
+    "Offline currency conversion",
+    "Supports USD, INR, EUR, GBP, JPY",
+    "Instant calculations",
+    "Manual exchange rate updates"
+  ]
+}
+</script>
+
+<style>
+body { margin:0; font-family:'Orbitron', sans-serif; background:#0a0a0a; color:#e0e0e0; }
+header, footer { text-align:center; padding:1rem; background:#111; color:#0ff; }
+h1 { font-size:2rem; color:#0ff; margin:0; }
+h2 { font-size:1.2rem; color:#0ff; margin:0.5rem 0; }
+.container { width:90%; max-width:700px; margin:auto; padding:1rem; text-align:center; }
+label { display:block; margin-top:0.5rem; font-size:0.9rem; color:#0ff; text-align:left; }
+input, select, button { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:8px; border:1px solid #0ff; background:#1a1a1a; color:#0ff; font-size:1rem; box-sizing:border-box; }
+button { cursor:pointer; transition:0.3s; }
+button:hover { box-shadow:0 0 15px #0ff; transform:scale(1.05); }
+#ad-container { margin:1rem 0; background:#222; color:#777; padding:1rem; border-radius:6px; }
+#result { margin-top:1rem; padding:1rem; background:#111; border-radius:8px; text-align:left; overflow-x:auto; }
+.explanation { margin-top:2rem; padding:1rem; background:#111; border-radius:8px; text-align:left; line-height:1.5; }
+@media(max-width:480px){
+  h1 { font-size:1.5rem; }
+  h2 { font-size:1rem; }
+  input, select, button { font-size:0.9rem; padding:0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Currency Converter Tool</h1>
+<h2>Convert USD, INR, EUR, GBP, JPY & More Instantly</h2>
+<p><a href="index.html" style="color:#0ff;">← Back to Home</a></p>
+</header>
+
+<main class="container">
+
+<div id="ad-container">AdSense Placeholder - Top</div>
+
+<label for="amount">Amount:</label>
+<input type="number" id="amount" placeholder="Enter amount">
+
+<label for="from-currency">From Currency:</label>
+<select id="from-currency">
+  <option value="USD">USD - US Dollar</option>
+  <option value="INR">INR - Indian Rupee</option>
+  <option value="EUR">EUR - Euro</option>
+  <option value="GBP">GBP - British Pound</option>
+  <option value="JPY">JPY - Japanese Yen</option>
+</select>
+
+<label for="to-currency">To Currency:</label>
+<select id="to-currency">
+  <option value="USD">USD - US Dollar</option>
+  <option value="INR">INR - Indian Rupee</option>
+  <option value="EUR">EUR - Euro</option>
+  <option value="GBP">GBP - British Pound</option>
+  <option value="JPY">JPY - Japanese Yen</option>
+</select>
+
+<button id="convertBtn">Convert Currency</button>
+
+<div id="result" aria-label="Currency Conversion Result"></div>
+
+<div class="explanation">
+<h3>Understanding Currency Conversion</h3>
+<p>A currency converter allows you to convert an amount from one currency to another using current exchange rates. It is essential for:</p>
+<ul>
+<li><strong>Travel & Tourism:</strong> Know how much your money is worth in foreign countries.</li>
+<li><strong>International Shopping:</strong> Compare prices in different currencies before making online purchases.</li>
+<li><strong>Financial Planning & Investments:</strong> Track currency fluctuations to manage forex risk.</li>
+<li><strong>Business & Commerce:</strong> Convert currencies for invoices, international payments, and trade.</li>
+</ul>
+<p>Our offline currency converter provides instant calculations without relying on an internet connection or APIs. It supports multiple popular currencies and can be updated manually for latest exchange rates.</p>
+</div>
+
+<div id="ad-container">AdSense Placeholder - Middle</div>
+
+</main>
+
+<footer>
+<p>© 2025 YourBestTool.com - Free Online Finance & Utility Tools</p>
+</footer>
+
+<script>
+// Hardcoded exchange rates (manual update)
+const exchangeRates = {
+  USD: {USD:1, INR:83.5, EUR:0.92, GBP:0.79, JPY:136.2},
+  INR: {USD:0.012, INR:1, EUR:0.011, GBP:0.0095, JPY:1.63},
+  EUR: {USD:1.08, INR:90.7, EUR:1, GBP:0.86, JPY:148.3},
+  GBP: {USD:1.27, INR:105.6, EUR:1.16, GBP:1, JPY:172.2},
+  JPY: {USD:0.0073, INR:0.61, EUR:0.0067, GBP:0.0058, JPY:1}
+};
+
+document.getElementById('convertBtn').addEventListener('click', () => {
+  const amount = parseFloat(document.getElementById('amount').value);
+  const from = document.getElementById('from-currency').value;
+  const to = document.getElementById('to-currency').value;
+  const resultDiv = document.getElementById('result');
+
+  if(!amount || amount <= 0) {
+    resultDiv.innerHTML = "<p>Please enter a valid amount.</p>";
+    return;
+  }
+
+  const converted = amount * exchangeRates[from][to];
+  resultDiv.innerHTML = `
+    <h3>Conversion Result</h3>
+    <p>${amount.toFixed(2)} ${from} = ${converted.toFixed(2)} ${to}</p>
+    <p>Exchange Rate: 1 ${from} = ${exchangeRates[from][to]} ${to}</p>
+  `;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Take-Home Salary & CTC Calculator - Compare Job Offers | YourBestTool</title>
+<meta name="description" content="Calculate take-home salary, deductions, bonuses, and compare job offers. Understand CTC vs net salary, tax implications, allowances, and plan your finances with our free Salary Calculator.">
+<meta name="keywords" content="Salary Calculator, Take-home Salary, Gross to Net Salary, CTC vs Net, Salary Breakdown, EPF, Professional Tax, Income Tax, Bonus Calculator, Job Offer Comparison, Financial Planning, Budgeting, Tax Planning, Salary Components">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "Take-Home Salary & CTC Calculator",
+  "url": "https://yourbesttool.com/salary-calculator.html",
+  "description": "Calculate take-home salary, CTC, allowances, deductions, and plan finances efficiently. Compare job offers and understand salary components and tax implications.",
+  "provider": {
+    "@type": "Organization",
+    "name": "YourBestTool.com"
+  }
+}
+</script>
+
+<style>
+body { margin:0; font-family:'Orbitron', sans-serif; background:#0a0a0a; color:#e0e0e0; }
+header, footer { text-align:center; padding:1rem; background:#111; color:#0ff; }
+h1 { font-size:2rem; color:#0ff; margin:0; }
+h2 { color:#0ff; font-size:1.2rem; margin:0.5rem 0; }
+.container { width:90%; max-width:700px; margin:auto; padding:1rem; text-align:center; }
+label { display:block; margin-top:0.5rem; font-size:0.9rem; color:#0ff; text-align:left; }
+input, select, button { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:8px; border:1px solid #0ff; background:#1a1a1a; color:#0ff; font-size:1rem; box-sizing:border-box; }
+button { cursor:pointer; transition:0.3s; }
+button:hover { box-shadow:0 0 15px #0ff; transform:scale(1.05); }
+#ad-container { margin:1rem 0; background:#222; color:#777; padding:1rem; border-radius:6px; }
+#info-box { margin-top:1.5rem; padding:1rem; background:#1a1a1a; border:1px solid #0ff; border-radius:8px; line-height:1.6; color:#e0e0e0; }
+#info-box h3 { color:#0ff; margin-bottom:0.5rem; }
+#info-box p { margin:0.4rem 0; font-size:0.9rem; }
+#result { margin-top:1rem; padding:1rem; background:#111; border-radius:8px; text-align:left; overflow-x:auto; }
+table { width:100%; border-collapse:collapse; margin-top:1rem; }
+th, td { border:1px solid #0ff; padding:6px; font-size:0.85rem; }
+th { background:#111; color:#0ff; }
+td { background:#1a1a1a; color:#0ff; }
+@media(max-width:480px){
+  h1 { font-size:1.5rem; }
+  h2 { font-size:1rem; }
+  input, select, button { font-size:0.9rem; padding:0.6rem; }
+  th, td { font-size:0.7rem; padding:4px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Take-Home Salary & CTC Calculator</h1>
+<h2>Gross to Net Salary, Job Offer Comparison, Tax Planning</h2>
+<p><a href="index.html">← Back to Home</a></p>
+</header>
+
+<main class="container">
+
+<div id="ad-container">AdSense Placeholder - Top</div>
+
+<label for="gross-salary">Gross Salary / CTC (₹):</label>
+<input type="number" id="gross-salary" placeholder="Enter gross salary per year">
+
+<label for="hra">HRA (₹):</label>
+<input type="number" id="hra" placeholder="Enter HRA if applicable">
+
+<label for="lta">LTA (₹):</label>
+<input type="number" id="lta" placeholder="Enter LTA if applicable">
+
+<label for="bonus">Bonus (₹):</label>
+<input type="number" id="bonus" placeholder="Annual bonus if any">
+
+<label for="other-allowances">Other Allowances (₹):</label>
+<input type="number" id="other-allowances" placeholder="Other allowances">
+
+<label for="pf">PF Contribution (% of Basic):</label>
+<input type="number" id="pf" placeholder="Default 12" value="12">
+
+<label for="professional-tax">Professional Tax (₹ per month):</label>
+<input type="number" id="professional-tax" placeholder="Default 200" value="200">
+
+<label for="tax-rate">Income Tax (% per year):</label>
+<input type="number" id="tax-rate" placeholder="Average effective tax rate" value="10">
+
+<button id="calculateBtn">Calculate Take-Home Salary</button>
+
+<div id="result" aria-label="Salary Calculation Result"></div>
+
+<div id="ad-container">AdSense Placeholder - Bottom</div>
+
+<div id="info-box">
+<h3>Understand Your Salary Components & Taxation</h3>
+<p><strong>Gross Salary / CTC:</strong> Total cost to company including salary, allowances, bonuses, and benefits.</p>
+<p><strong>Basic Salary:</strong> Core component used for PF calculation and other benefits.</p>
+<p><strong>HRA (House Rent Allowance):</strong> Tax-exempt if living in a rented house.</p>
+<p><strong>LTA (Leave Travel Allowance):</strong> Tax-free travel within India under certain conditions.</p>
+<p><strong>Bonus:</strong> Performance or annual bonus included in salary.</p>
+<p><strong>Other Allowances:</strong> Medical, conveyance, or incentive allowances.</p>
+<p><strong>Provident Fund (PF):</strong> Mandatory retirement contribution, usually 12% of basic.</p>
+<p><strong>Professional Tax (PT):</strong> State-mandated monthly deduction.</p>
+<p><strong>Income Tax:</strong> Tax calculated on taxable income (gross - PF - exemptions) based on your tax slab.</p>
+<p>This calculator estimates <strong>take-home salary</strong>, helping you compare offers and plan budgets efficiently.</p>
+</div>
+
+</main>
+
+<footer>
+<p>© 2025 YourBestTool.com</p>
+</footer>
+
+<script>
+const grossInput = document.getElementById('gross-salary');
+const hraInput = document.getElementById('hra');
+const ltaInput = document.getElementById('lta');
+const bonusInput = document.getElementById('bonus');
+const otherInput = document.getElementById('other-allowances');
+const pfInput = document.getElementById('pf');
+const ptInput = document.getElementById('professional-tax');
+const taxInput = document.getElementById('tax-rate');
+const calculateBtn = document.getElementById('calculateBtn');
+const resultDiv = document.getElementById('result');
+
+calculateBtn.addEventListener('click', ()=>{
+    const gross = parseFloat(grossInput.value) || 0;
+    const hra = parseFloat(hraInput.value) || 0;
+    const lta = parseFloat(ltaInput.value) || 0;
+    const bonus = parseFloat(bonusInput.value) || 0;
+    const other = parseFloat(otherInput.value) || 0;
+    const pfPercent = parseFloat(pfInput.value) || 12;
+    const pt = parseFloat(ptInput.value) || 200;
+    const taxPercent = parseFloat(taxInput.value) || 10;
+
+    if(gross <=0) return alert('Enter valid gross salary');
+
+    // Assume basic is 40% of gross
+    const basic = gross * 0.4;
+    const pf = basic * pfPercent / 100;
+    const totalAllowances = hra + lta + bonus + other;
+    const taxableIncome = gross - pf - pt*12;
+    const incomeTax = taxableIncome * taxPercent/100;
+
+    const netAnnual = gross + totalAllowances - pf - pt*12 - incomeTax;
+    const netMonthly = netAnnual / 12;
+
+    resultDiv.innerHTML = `
+        <h3>Take-Home Salary Breakdown</h3>
+        <p><strong>Gross Salary / CTC:</strong> ₹${gross.toFixed(2)}</p>
+        <p><strong>Basic Salary:</strong> ₹${basic.toFixed(2)}</p>
+        <p><strong>Total Allowances:</strong> ₹${totalAllowances.toFixed(2)}</p>
+        <p><strong>Provident Fund (PF):</strong> ₹${pf.toFixed(2)}</p>
+        <p><strong>Professional Tax:</strong> ₹${(pt*12).toFixed(2)}</p>
+        <p><strong>Income Tax:</strong> ₹${incomeTax.toFixed(2)}</p>
+        <p><strong>Net Annual Take-Home:</strong> ₹${netAnnual.toFixed(2)}</p>
+        <p><strong>Net Monthly Take-Home:</strong> ₹${netMonthly.toFixed(2)}</p>
+    `;
+});
+</script>
+
+</body>
+</html>

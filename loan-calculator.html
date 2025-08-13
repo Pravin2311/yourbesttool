@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan & EMI Calculator - Personal, Home, Car, Education, Gold, Property Loans | YourBestTool</title>
+<meta name="description" content="Calculate EMIs and generate repayment schedules for Personal, Home, Car, Education, Gold, Loan Against Property, and Loan Against Securities/FDs with our free online Loan & EMI Calculator. Plan your loan repayments efficiently.">
+<meta name="keywords" content="Loan Calculator, EMI Calculator, Personal Loan EMI, Home Loan EMI, Car Loan EMI, Education Loan Calculator, Gold Loan Calculator, Loan Against Property EMI, Loan Against Securities, Loan Against FD, Free Online Loan Calculator, Loan Repayment Schedule">
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Loan & EMI Calculator",
+  "url": "https://yourbesttool.com/loan-emi-calculator.html",
+  "description": "Calculate EMIs and repayment schedules for various loan types including personal, home, car, education, gold, and property loans.",
+  "applicationCategory": "FinanceApplication",
+  "creator": {
+    "@type": "Organization",
+    "name": "YourBestTool.com"
+  },
+  "operatingSystem": "Web",
+  "featureList": [
+    "EMI Calculation",
+    "Personal Loan EMI",
+    "Home Loan EMI",
+    "Car Loan EMI",
+    "Education Loan EMI",
+    "Gold Loan EMI",
+    "Loan Against Property EMI",
+    "Loan Against Securities/FD EMI",
+    "Repayment Schedule Generation"
+  ]
+}
+</script>
+
+<style>
+body { margin:0; font-family:'Orbitron', sans-serif; background:#0a0a0a; color:#e0e0e0; }
+header, footer { text-align:center; padding:1rem; background:#111; color:#0ff; }
+h1 { font-size:2rem; color:#0ff; margin:0; }
+h2 { color:#0ff; font-size:1.2rem; margin:0.5rem 0; }
+.container { width:90%; max-width:700px; margin:auto; padding:1rem; text-align:center; overflow-x:auto; }
+label { display:block; margin-top:0.5rem; font-size:0.9rem; color:#0ff; text-align:left; }
+input, select, button { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:8px; border:1px solid #0ff; background:#1a1a1a; color:#0ff; font-size:1rem; box-sizing:border-box; }
+button { cursor:pointer; transition:0.3s; }
+button:hover { box-shadow:0 0 15px #0ff; transform:scale(1.05); }
+#ad-container { margin:1rem 0; background:#222; color:#777; padding:1rem; border-radius:6px; }
+#loan-description { margin-bottom:1rem; padding:1rem; background:#111; border-radius:8px; text-align:left; }
+#result { margin-top:1rem; padding:1rem; background:#111; border-radius:8px; overflow-x:auto; text-align:left; }
+table { width:100%; border-collapse:collapse; margin-top:1rem; }
+th, td { border:1px solid #0ff; padding:6px; font-size:0.85rem; }
+th { background:#111; color:#0ff; }
+td { background:#1a1a1a; color:#0ff; }
+@media(max-width:480px){
+  h1 { font-size:1.5rem; }
+  h2 { font-size:1rem; }
+  input, select, button { font-size:0.9rem; padding:0.6rem; }
+  th, td { font-size:0.7rem; padding:4px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Loan & EMI Calculator</h1>
+<h2>Calculate EMI & Repayment Schedule Instantly</h2>
+<p><a href="index.html" style="color:#0ff;">← Back to Home</a></p>
+</header>
+
+<main class="container">
+
+<div id="ad-container">AdSense Placeholder - Top</div>
+
+<div id="loan-description">Select a loan type to see details here.</div>
+
+<label for="loan-type">Select Loan Type:</label>
+<select id="loan-type">
+  <option value="personal">Personal Loan</option>
+  <option value="home">Home Loan (Mortgage)</option>
+  <option value="car">Car Loan</option>
+  <option value="education">Education Loan</option>
+  <option value="gold">Gold Loan</option>
+  <option value="property">Loan Against Property</option>
+  <option value="securities">Loan Against Securities/FD</option>
+</select>
+
+<label for="principal">Loan Amount (₹):</label>
+<input type="number" id="principal" placeholder="Enter loan amount">
+
+<label for="rate">Annual Interest Rate (%):</label>
+<input type="number" id="rate" placeholder="Enter interest rate">
+
+<label for="tenure">Loan Tenure (Months):</label>
+<input type="number" id="tenure" placeholder="Enter tenure in months">
+
+<button id="calculateBtn">Calculate EMI</button>
+
+<div id="result" aria-label="EMI Calculation Result"></div>
+<div id="ad-container">AdSense Placeholder - Middle</div>
+
+</main>
+
+<footer>
+<p>© 2025 YourBestTool.com - Free Finance Tools</p>
+</footer>
+
+<script>
+const principalInput = document.getElementById('principal');
+const rateInput = document.getElementById('rate');
+const tenureInput = document.getElementById('tenure');
+const loanTypeSelect = document.getElementById('loan-type');
+const calculateBtn = document.getElementById('calculateBtn');
+const resultDiv = document.getElementById('result');
+const loanDescriptionDiv = document.getElementById('loan-description');
+
+const loanDescriptions = {
+  personal: "Personal Loans are versatile loans for debt consolidation, medical emergencies, home renovations, weddings, or travel. They are generally unsecured with faster approval.",
+  home: "Home Loans (Mortgages) finance the purchase or renovation of a home. They offer long repayment tenures and structured EMIs.",
+  car: "Car Loans (Auto Loans) help you buy a new or used vehicle. Interest rates and tenure depend on your credit profile.",
+  education: "Education Loans (Student Loans) cover tuition, living expenses, and course-related costs. Flexible repayment options may apply after graduation.",
+  gold: "Gold Loans are secured loans against gold jewelry, coins, or bars. Quick disbursal with minimal documentation.",
+  property: "Loan Against Property allows you to leverage existing property as collateral for funds. Suitable for larger loans with longer tenures.",
+  securities: "Loan Against Securities/Fixed Deposits lets you borrow against investments like shares, mutual funds, or FDs. Lower interest rates compared to personal loans."
+};
+
+function updateLoanDescription() {
+  const selectedLoan = loanTypeSelect.value;
+  loanDescriptionDiv.textContent = loanDescriptions[selectedLoan];
+}
+loanTypeSelect.addEventListener('change', updateLoanDescription);
+updateLoanDescription();
+
+function calculateEMI(P, R, N){
+    const monthlyRate = R / (12*100);
+    const emi = P*monthlyRate/(1 - Math.pow(1+monthlyRate, -N));
+    return emi;
+}
+
+function generateRepaymentSchedule(P, R, N){
+    const monthlyRate = R / (12*100);
+    const emi = calculateEMI(P,R,N);
+    let balance = P;
+    let table = `<h4>Repayment Schedule</h4>
+                 <table>
+                 <tr><th>Month</th><th>EMI (₹)</th><th>Principal (₹)</th><th>Interest (₹)</th><th>Balance (₹)</th></tr>`;
+    for(let i=1;i<=N;i++){
+        let interest = balance * monthlyRate;
+        let principal = emi - interest;
+        balance -= principal;
+        if(balance < 0) balance = 0;
+        table += `<tr>
+                    <td>${i}</td>
+                    <td>${emi.toFixed(2)}</td>
+                    <td>${principal.toFixed(2)}</td>
+                    <td>${interest.toFixed(2)}</td>
+                    <td>${balance.toFixed(2)}</td>
+                  </tr>`;
+    }
+    table += "</table>";
+    return table;
+}
+
+calculateBtn.addEventListener('click', ()=>{
+    const loanType = loanTypeSelect.value;
+    const P = parseFloat(principalInput.value);
+    const R = parseFloat(rateInput.value);
+    const N = parseInt(tenureInput.value);
+
+    if(!P || !R || !N) return alert('Please enter all values');
+
+    const emi = calculateEMI(P,R,N);
+    const totalPay = emi * N;
+    const interestPay = totalPay - P;
+
+    resultDiv.innerHTML = `
+        <h3>${loanType.charAt(0).toUpperCase()+loanType.slice(1)} EMI Result</h3>
+        <p><strong>Monthly EMI:</strong> ₹${emi.toFixed(2)}</p>
+        <p><strong>Total Interest Payable:</strong> ₹${interestPay.toFixed(2)}</p>
+        <p><strong>Total Payment:</strong> ₹${totalPay.toFixed(2)}</p>
+        ${generateRepaymentSchedule(P,R,N)}
+    `;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All-in-One Word Counter & Writing Tool | SEO & Content Optimizer</title>
+<meta name="description" content="Free Word Counter and Writing Tool to check words, characters, sentences, paragraphs, readability, keyword density, and optimize content for SEO.">
+<meta name="keywords" content="Word Counter, Character Counter, Sentence Counter, Paragraph Counter, Keyword Density Checker, Readability Score, SEO Content Tool, Writing Hub, Content Optimization, Text Analyzer, Online Writing Tool, Blogging Tools, Academic Writing, Copywriting">
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "All-in-One Word Counter & Writing Tool",
+  "url": "https://yourbesttool.com/word-counter.html",
+  "description": "Analyze text for words, characters, sentences, paragraphs, readability, and keyword density. Optimize content for SEO and readability.",
+  "applicationCategory": "Utility",
+  "creator": {
+    "@type": "Organization",
+    "name": "YourBestTool.com"
+  }
+}
+</script>
+
+<style>
+body { margin:0; font-family:'Orbitron', sans-serif; background:#0a0a0a; color:#e0e0e0; }
+header, footer { text-align:center; padding:1rem; background:#111; color:#0ff; }
+h1 { font-size:2rem; color:#0ff; margin:0; }
+h2 { font-size:1.2rem; color:#0ff; margin:0.5rem 0; }
+.container { width:90%; max-width:900px; margin:auto; padding:1rem; text-align:center; }
+textarea { width:100%; height:200px; padding:1rem; margin:0.5rem 0; border-radius:8px; border:1px solid #0ff; background:#1a1a1a; color:#0ff; font-size:1rem; box-sizing:border-box; resize:vertical; }
+button { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:8px; border:1px solid #0ff; background:#1a1a1a; color:#0ff; font-size:1rem; cursor:pointer; transition:0.3s; }
+button:hover { box-shadow:0 0 15px #0ff; transform:scale(1.05); }
+#result { margin-top:1rem; padding:1rem; background:#111; border-radius:8px; text-align:left; overflow-x:auto; line-height:1.5; }
+.explanation { margin-top:2rem; padding:1rem; background:#111; border-radius:8px; text-align:left; line-height:1.5; }
+#ad-container { margin:1rem 0; background:#222; color:#777; padding:1rem; border-radius:6px; }
+@media(max-width:480px){
+  h1 { font-size:1.5rem; }
+  h2 { font-size:1rem; }
+  textarea, button { font-size:0.9rem; padding:0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>All-in-One Word Counter & Writing Hub</h1>
+<h2>Analyze Words, Characters, Sentences, Paragraphs, Readability & Keyword Density</h2>
+<p><a href="index.html">← Back to Home</a></p>
+</header>
+
+<main class="container">
+
+<div id="ad-container">AdSense Placeholder</div>
+
+<textarea id="text-input" placeholder="Paste or type your content here..."></textarea>
+<button id="analyzeBtn">Analyze Text</button>
+
+<div id="result" aria-label="Text Analysis Result"></div>
+
+<div id="ad-container">AdSense Placeholder</div>
+
+<div class="explanation">
+<h3>Comprehensive Writing Analysis & SEO Optimization</h3>
+<p>Perfect for bloggers, students, content creators, and copywriters, this tool allows you to:</p>
+<ul>
+<li><strong>Check word & character count:</strong> Stay within limits for essays, blogs, captions, or professional documents.</li>
+<li><strong>Analyze sentence & paragraph structure:</strong> Improve readability and flow for polished writing.</li>
+<li><strong>Check keyword density:</strong> Optimize content for SEO by identifying frequent keywords.</li>
+<li><strong>Estimate reading & speaking time:</strong> Plan presentations, scripts, or speeches with accurate timing.</li>
+<li><strong>Assess readability:</strong> Evaluate how easy your content is to read and understand.</li>
+<li><strong>Enhance content quality:</strong> Ensure clear, concise, engaging, and SEO-friendly content.</li>
+<li><strong>Save time:</strong> Automatically count words, characters, sentences, and paragraphs without manual errors.</li>
+</ul>
+</div>
+
+</main>
+
+<footer>
+<p>© 2025 YourBestTool.com</p>
+</footer>
+
+<script>
+const analyzeBtn = document.getElementById('analyzeBtn');
+const textInput = document.getElementById('text-input');
+const resultDiv = document.getElementById('result');
+
+function countWords(text){
+    return text.trim().split(/\s+/).filter(w => w).length;
+}
+
+function countCharacters(text){
+    return text.length;
+}
+
+function countSentences(text){
+    return text.split(/[.!?]+/).filter(s => s.trim()).length;
+}
+
+function countParagraphs(text){
+    return text.split(/\n+/).filter(p => p.trim()).length;
+}
+
+function keywordDensity(text){
+    const words = text.toLowerCase().match(/\b\w+\b/g) || [];
+    const freq = {};
+    words.forEach(word => freq[word] = (freq[word] || 0) + 1);
+    return Object.entries(freq)
+        .sort((a,b) => b[1]-a[1])
+        .slice(0,10)
+        .map(([word,count]) => `${word}: ${((count/words.length)*100).toFixed(2)}%`)
+        .join('<br>');
+}
+
+function readingTime(text){
+    const wordsPerMinute = 200;
+    const words = countWords(text);
+    return (words/wordsPerMinute).toFixed(2);
+}
+
+function fleschScore(text){
+    const sentences = countSentences(text);
+    const words = countWords(text);
+    const syllables = text.toLowerCase().match(/[aeiouy]+/g) || [];
+    if(sentences === 0 || words === 0) return 0;
+    return (206.835 - 1.015*(words/sentences) - 84.6*(syllables.length/words)).toFixed(2);
+}
+
+analyzeBtn.addEventListener('click', ()=>{
+    const text = textInput.value;
+    if(!text.trim()) return alert('Please enter some text');
+
+    const words = countWords(text);
+    const chars = countCharacters(text);
+    const sentences = countSentences(text);
+    const paragraphs = countParagraphs(text);
+    const keywords = keywordDensity(text);
+    const time = readingTime(text);
+    const flesch = fleschScore(text);
+
+    resultDiv.innerHTML = `
+        <h3>Text Analysis Results</h3>
+        <p><strong>Words:</strong> ${words}</p>
+        <p><strong>Characters (with spaces):</strong> ${chars}</p>
+        <p><strong>Sentences:</strong> ${sentences}</p>
+        <p><strong>Paragraphs:</strong> ${paragraphs}</p>
+        <p><strong>Estimated Reading Time:</strong> ${time} minutes</p>
+        <p><strong>Flesch Readability Score:</strong> ${flesch} (Higher is easier to read)</p>
+        <p><strong>Top Keywords & Density:</strong><br>${keywords}</p>
+    `;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+# robots.txt for YourBestTool.com
+
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+Allow: /
+
+Sitemap: https://yourbesttool.com/sitemap.xml

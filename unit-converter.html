@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Unit Converter - Electronics, Physics, Scientific, Length, Weight, Volume, Temperature | YourBestTool</title>
+<meta name="description" content="Free online Unit Converter for Electronics, Physics, Scientific, Length, Weight, Volume, Temperature, Time, and Area. Convert units with examples and explanations.">
+<meta name="keywords" content="Unit Converter, Electronics Converter, Physics Unit Conversion, Scientific Unit Conversion, Length, Weight, Volume, Temperature, Time, Area, Metric to Imperial, SI Units, Online Unit Converter, Measurement Conversion Tool">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Ultimate Unit Converter",
+  "url": "https://yourbesttool.com/unit-converter.html",
+  "description": "Convert units in electronics, physics, scientific, length, weight, volume, temperature, time, and area online for free.",
+  "applicationCategory": "Utility",
+  "creator": {
+    "@type": "Organization",
+    "name": "YourBestTool.com"
+  }
+}
+</script>
+
+<style>
+body { margin:0; font-family:'Orbitron', sans-serif; background:#0a0a0a; color:#e0e0e0; }
+header, footer { text-align:center; padding:1rem; background:#111; color:#0ff; }
+h1 { font-size:2rem; color:#0ff; margin:0; }
+h2 { font-size:1.2rem; color:#0ff; margin:0.5rem 0; }
+.container { width:90%; max-width:900px; margin:auto; padding:1rem; text-align:center; }
+label, select, input, button { display:block; width:100%; margin:0.5rem 0; font-size:1rem; padding:0.8rem; border-radius:8px; border:1px solid #0ff; background:#1a1a1a; color:#0ff; box-sizing:border-box; }
+button { cursor:pointer; transition:0.3s; }
+button:hover { box-shadow:0 0 15px #0ff; transform:scale(1.05); }
+#result { margin-top:1rem; padding:1rem; background:#111; border-radius:8px; text-align:left; overflow-x:auto; line-height:1.5; }
+.explanation { margin-top:2rem; padding:1rem; background:#111; border-radius:8px; text-align:left; line-height:1.5; }
+#ad-container { margin:1rem 0; background:#222; color:#777; padding:1rem; border-radius:6px; }
+@media(max-width:480px){
+  h1 { font-size:1.5rem; }
+  h2 { font-size:1rem; }
+  label, select, input, button { font-size:0.9rem; padding:0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Ultimate Unit Converter</h1>
+<h2>Convert Electronics, Physics, Scientific, Length, Weight, Volume, Temperature, Time & Area Units</h2>
+<p><a href="index.html">← Back to Home</a></p>
+</header>
+
+<main class="container">
+
+<div id="ad-container">AdSense Placeholder</div>
+
+<label for="category">Select Unit Category:</label>
+<select id="category">
+  <option value="length">Length</option>
+  <option value="weight">Weight/Mass</option>
+  <option value="volume">Volume</option>
+  <option value="temperature">Temperature</option>
+  <option value="time">Time</option>
+  <option value="area">Area</option>
+  <option value="electronics">Electronics</option>
+  <option value="physics">Physics</option>
+  <option value="scientific">Scientific</option>
+</select>
+
+<label for="value">Enter Value:</label>
+<input type="number" id="value" placeholder="Enter numeric value">
+
+<label for="from-unit">From Unit:</label>
+<select id="from-unit"></select>
+
+<label for="to-unit">To Unit:</label>
+<select id="to-unit"></select>
+
+<button id="convertBtn">Convert</button>
+
+<div id="result" aria-label="Conversion Result"></div>
+<div id="ad-container">AdSense Placeholder</div>
+
+<div class="explanation">
+<h3>Understanding Unit Conversion</h3>
+<p>Unit conversion ensures accuracy and consistency across science, engineering, electronics, cooking, fitness, and daily life. This converter supports:</p>
+<ul>
+<li><strong>Length:</strong> Meters, kilometers, inches, feet, miles.</li>
+<li><strong>Weight/Mass:</strong> Kilograms, grams, pounds, ounces, tons.</li>
+<li><strong>Volume:</strong> Liters, milliliters, gallons, quarts, cups.</li>
+<li><strong>Temperature:</strong> Celsius, Fahrenheit, Kelvin.</li>
+<li><strong>Time:</strong> Seconds, minutes, hours, days, weeks.</li>
+<li><strong>Area:</strong> Square meters, acres, hectares, square feet.</li>
+<li><strong>Electronics:</strong> Voltage (V), Current (A), Resistance (Ω), Capacitance (F), Inductance (H), Power (W).</li>
+<li><strong>Physics:</strong> Force (N), Energy (J), Power (W), Pressure (Pa), Velocity (m/s), Acceleration (m/s²).</li>
+<li><strong>Scientific & SI Units:</strong> SI prefixes (kilo, milli, micro, nano), Concentration (mol/L), Frequency (Hz), Luminous intensity (cd).</li>
+</ul>
+</div>
+
+</main>
+
+<footer>
+<p>© 2025 YourBestTool.com</p>
+</footer>
+
+<script>
+const category = document.getElementById('category');
+const fromUnit = document.getElementById('from-unit');
+const toUnit = document.getElementById('to-unit');
+const valueInput = document.getElementById('value');
+const resultDiv = document.getElementById('result');
+
+const units = {
+  length: { meter:1, kilometer:1000, centimeter:0.01, millimeter:0.001, mile:1609.34, yard:0.9144, foot:0.3048, inch:0.0254 },
+  weight: { kilogram:1, gram:0.001, milligram:0.000001, pound:0.453592, ounce:0.0283495, ton:1000 },
+  volume: { liter:1, milliliter:0.001, gallon:3.78541, quart:0.946353, pint:0.473176, cup:0.24 },
+  temperature: { celsius:'c', fahrenheit:'f', kelvin:'k' },
+  time: { second:1, minute:60, hour:3600, day:86400, week:604800 },
+  area: { 'square meter':1, 'square kilometer':1000000, 'square centimeter':0.0001, 'square millimeter':0.000001, acre:4046.86, hectare:10000, 'square foot':0.092903 },
+  electronics: { volt:1, ampere:1, ohm:1, farad:1, henry:1, watt:1 },
+  physics: { newton:1, joule:1, watt:1, pascal:1, 'm/s':1, 'm/s²':1 },
+  scientific: { kilo:1000, milli:0.001, micro:0.000001, nano:0.000000001, mole:1, 'mol/L':1, hertz:1, candela:1 }
+};
+
+function populateUnits(){
+  const selected = category.value;
+  fromUnit.innerHTML = '';
+  toUnit.innerHTML = '';
+  for(let key in units[selected]){
+    fromUnit.add(new Option(key, key));
+    toUnit.add(new Option(key, key));
+  }
+}
+
+category.addEventListener('change', populateUnits);
+window.addEventListener('load', populateUnits);
+
+function convertTemperature(val, from, to){
+  if(from==='celsius'){ 
+    if(to==='fahrenheit') return val*9/5+32;
+    if(to==='kelvin') return val+273.15;
+  }
+  if(from==='fahrenheit'){
+    if(to==='celsius') return (val-32)*5/9;
+    if(to==='kelvin') return (val-32)*5/9+273.15;
+  }
+  if(from==='kelvin'){
+    if(to==='celsius') return val-273.15;
+    if(to==='fahrenheit') return (val-273.15)*9/5+32;
+  }
+  return val;
+}
+
+document.getElementById('convertBtn').addEventListener('click', ()=>{
+  const val = parseFloat(valueInput.value);
+  if(isNaN(val)) return alert('Enter valid numeric value');
+
+  const from = fromUnit.value;
+  const to = toUnit.value;
+  let converted;
+  if(category.value==='temperature'){
+    converted = convertTemperature(val, from, to);
+  } else {
+    const factorFrom = units[category.value][from];
+    const factorTo = units[category.value][to];
+    converted = val * factorFrom / factorTo;
+  }
+
+  resultDiv.innerHTML = `<h3>Conversion Result</h3>
+                         <p>${val} ${from} = <strong>${converted.toFixed(6)}</strong> ${to}</p>`;
+});
+</script>
+
+</body>
+</html>

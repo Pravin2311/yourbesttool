@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free QR Code Generator - Website, vCard, Social, WiFi, Bitcoin, App QR</title>
+<meta name="description" content="Generate free QR codes online for website URLs, social media, vCards, email, SMS, WiFi, Bitcoin, video, location, and apps. Customize with colors, logos, and download instantly.">
+<meta name="keywords" content="QR Code Generator, free QR code, website QR, social media QR, vCard QR, email QR, SMS QR, WiFi QR, Bitcoin QR, video QR, location QR, app QR, custom QR, QR logo, download QR code">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Free QR Code Generator",
+  "url": "https://yourbesttool.com/qr-code-generator.html",
+  "description": "Generate free QR codes online for websites, social media, vCards, emails, SMS, WiFi, Bitcoin, videos, locations, and apps.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "creator": {
+    "@type": "Organization",
+    "name": "YourBestTool.com"
+  },
+  "featureList": [
+    "Website URL QR",
+    "Social Media QR",
+    "vCard QR",
+    "Email QR",
+    "SMS QR",
+    "WiFi QR",
+    "Bitcoin QR",
+    "Video QR",
+    "Location QR",
+    "App QR",
+    "Custom Colors & Logo",
+    "Download QR Code"
+  ]
+}
+</script>
+
+<style>
+body { margin:0; font-family:'Orbitron', sans-serif; background:#0a0a0a; color:#e0e0e0; }
+header, footer { text-align:center; padding:1rem; background:#111; color:#0ff; }
+h1 { font-size:2rem; color:#0ff; margin:0; }
+h2 { color:#0ff; font-size:1.2rem; margin:0.5rem 0; }
+.container { width:90%; max-width:600px; margin:auto; padding:1rem; text-align:center; overflow-x:hidden; }
+label { display:block; margin-top:0.5rem; font-size:0.9rem; color:#0ff; }
+input, select, button { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:8px; border:1px solid #0ff; background:#1a1a1a; color:#0ff; font-size:1rem; box-sizing:border-box; }
+button { cursor:pointer; transition:0.3s; }
+button:hover { box-shadow:0 0 15px #0ff; transform:scale(1.05); }
+#ad-container { margin:1rem 0; background:#222; color:#777; padding:1rem; border-radius:6px; }
+#qrcode { margin-top:1rem; background:#fff; padding:10px; display:inline-block; position:relative; max-width:100%; height:auto; }
+.field-group { display:none; text-align:left; }
+a { color:#0ff; text-decoration:none; }
+@media(max-width:480px){
+  h1 { font-size:1.5rem; }
+  h2 { font-size:1rem; }
+  input, select, button { font-size:0.9rem; padding:0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Free QR Code Generator</h1>
+<h2>Create Website, Social, vCard, Email, SMS, WiFi, Bitcoin, Video, Location, App QR Codes</h2>
+<p><a href="index.html">← Back to Home</a></p>
+</header>
+
+<main class="container">
+<div id="ad-container">AdSense Placeholder - Top</div>
+
+<label for="type">Select QR Code Type:</label>
+<select id="type">
+  <option value="website">Website URL</option>
+  <option value="social">Social Media</option>
+  <option value="vcard">vCard</option>
+  <option value="email">Email</option>
+  <option value="sms">SMS</option>
+  <option value="wifi">WiFi</option>
+  <option value="bitcoin">Bitcoin</option>
+  <option value="video">Video</option>
+  <option value="location">Location</option>
+  <option value="app">App</option>
+</select>
+
+<!-- Input fields for each QR type -->
+<div class="field-group" id="website-fields"><label>Website URL:</label><input type="text" id="website"></div>
+<div class="field-group" id="social-fields">
+<label>Social Platform:</label>
+<select id="social-platform">
+  <option value="facebook">Facebook</option>
+  <option value="twitter">Twitter</option>
+  <option value="instagram">Instagram</option>
+  <option value="linkedin">LinkedIn</option>
+</select>
+<label>Profile URL/Username:</label><input type="text" id="social-username">
+</div>
+<div class="field-group" id="vcard-fields">
+<label>Name:</label><input type="text" id="vcard-name">
+<label>Phone:</label><input type="text" id="vcard-phone">
+<label>Email:</label><input type="text" id="vcard-email">
+<label>Company:</label><input type="text" id="vcard-company">
+</div>
+<div class="field-group" id="email-fields">
+<label>To Email:</label><input type="text" id="email-to">
+<label>Subject:</label><input type="text" id="email-subject">
+<label>Message:</label><input type="text" id="email-message">
+</div>
+<div class="field-group" id="sms-fields">
+<label>Phone Number:</label><input type="text" id="sms-number">
+<label>Message:</label><input type="text" id="sms-message">
+</div>
+<div class="field-group" id="wifi-fields">
+<label>SSID:</label><input type="text" id="wifi-ssid">
+<label>Password:</label><input type="text" id="wifi-pass">
+<label>Network Type:</label>
+<select id="wifi-type">
+  <option value="WPA">WPA/WPA2</option>
+  <option value="WEP">WEP</option>
+  <option value="nopass">None</option>
+</select>
+</div>
+<div class="field-group" id="bitcoin-fields">
+<label>Bitcoin Address:</label><input type="text" id="btc-address">
+<label>Amount (optional):</label><input type="text" id="btc-amount">
+</div>
+<div class="field-group" id="video-fields"><label>Video URL:</label><input type="text" id="video-url"></div>
+<div class="field-group" id="location-fields">
+<label>Latitude:</label><input type="text" id="loc-lat">
+<label>Longitude:</label><input type="text" id="loc-lon">
+</div>
+<div class="field-group" id="app-fields"><label>App URL:</label><input type="text" id="app-url"></div>
+
+<!-- Customization -->
+<label>Foreground Color:</label><input type="color" id="fg-color" value="#000000">
+<label>Background Color:</label><input type="color" id="bg-color" value="#ffffff">
+<label>Upload Logo (optional):</label><input type="file" id="logo" accept="image/*">
+
+<button id="generateBtn">Generate QR Code</button>
+<button id="downloadBtn">Download QR Code</button>
+
+<div id="ad-container">AdSense Placeholder - Middle</div>
+<div id="qrcode" aria-label="Generated QR Code"></div>
+</main>
+
+<footer>
+<p>© 2025 YourBestTool.com - Free QR Code Generator</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+<script>
+const qr = new QRious({ element: document.createElement('canvas'), size: Math.min(window.innerWidth*0.7, 250) });
+const qrcodeDiv = document.getElementById('qrcode');
+
+const typeSelect = document.getElementById('type');
+const fgColor = document.getElementById('fg-color');
+const bgColor = document.getElementById('bg-color');
+const logoInput = document.getElementById('logo');
+
+const fieldGroups = {
+  website: document.getElementById('website-fields'),
+  social: document.getElementById('social-fields'),
+  vcard: document.getElementById('vcard-fields'),
+  email: document.getElementById('email-fields'),
+  sms: document.getElementById('sms-fields'),
+  wifi: document.getElementById('wifi-fields'),
+  bitcoin: document.getElementById('bitcoin-fields'),
+  video: document.getElementById('video-fields'),
+  location: document.getElementById('location-fields'),
+  app: document.getElementById('app-fields')
+};
+
+function showFields(){
+  for(const key in fieldGroups) fieldGroups[key].style.display='none';
+  fieldGroups[typeSelect.value].style.display='block';
+}
+typeSelect.addEventListener('change', showFields);
+showFields();
+
+function getQRValue(){
+  const type = typeSelect.value;
+  switch(type){
+    case 'website': return document.getElementById('website').value;
+    case 'social': return document.getElementById('social-username').value;
+    case 'vcard':
+      return `BEGIN:VCARD\nVERSION:3.0\nFN:${document.getElementById('vcard-name').value}\nORG:${document.getElementById('vcard-company').value}\nTEL:${document.getElementById('vcard-phone').value}\nEMAIL:${document.getElementById('vcard-email').value}\nEND:VCARD`;
+    case 'email': return `mailto:${document.getElementById('email-to').value}?subject=${encodeURIComponent(document.getElementById('email-subject').value)}&body=${encodeURIComponent(document.getElementById('email-message').value)}`;
+    case 'sms': return `SMSTO:${document.getElementById('sms-number').value}:${document.getElementById('sms-message').value}`;
+    case 'wifi': return `WIFI:T:${document.getElementById('wifi-type').value};S:${document.getElementById('wifi-ssid').value};P:${document.getElementById('wifi-pass').value};;`;
+    case 'bitcoin': return document.getElementById('btc-amount').value ? `bitcoin:${document.getElementById('btc-address').value}?amount=${document.getElementById('btc-amount').value}` : `bitcoin:${document.getElementById('btc-address').value}`;
+    case 'video': return document.getElementById('video-url').value;
+    case 'location': return `geo:${document.getElementById('loc-lat').value},${document.getElementById('loc-lon').value}`;
+    case 'app': return document.getElementById('app-url').value;
+    default: return '';
+  }
+}
+
+document.getElementById('generateBtn').addEventListener('click', ()=>{
+  const val = getQRValue();
+  if(!val.trim()) return alert('Please enter required information!');
+  qr.value = val;
+  qr.foreground = fgColor.value;
+  qr.background = bgColor.value;
+
+  const canvas = qr.element;
+  const ctx = canvas.getContext('2d');
+  if(logoInput.files.length>0){
+    const img = new Image();
+    img.onload = () => {
+      const size = canvas.width*0.2;
+      ctx.drawImage(img,(canvas.width-size)/2,(canvas.height-size)/2,size,size);
+    };
+    img.src = URL.createObjectURL(logoInput.files[0]);
+  }
+  qrcodeDiv.innerHTML='';
+  qrcodeDiv.appendChild(canvas);
+});
+
+document.getElementById('downloadBtn').addEventListener('click', ()=>{
+  if(!qr.value) return alert('Generate a QR code first!');
+  const link=document.createElement('a');
+  link.href=qr.element.toDataURL('image/png');
+  link.download='qrcode.png';
+  link.click();
+});
+
+window.addEventListener('resize', ()=>{
+  if(qr.value){
+    qr.size = Math.min(window.innerWidth*0.7, 250);
+    qr.value = getQRValue();
+    qrcodeDiv.innerHTML='';
+    qrcodeDiv.appendChild(qr.element);
+  }
+});
+</script>
+
+</body>
+</html>

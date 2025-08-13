@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Prepayment Calculator - Part & Full Prepayment | YourBestTool</title>
+<meta name="description" content="Calculate interest savings and reduced tenure with our Loan Prepayment Calculator. Plan part or full prepayment for Home, Personal, Car loans and optimize your finances.">
+<meta name="keywords" content="Loan Prepayment Calculator, Part Prepayment, Full Prepayment, Loan Foreclosure, Prepayment Benefits, Home Loan Prepayment, Personal Loan Prepayment, Auto Loan Prepayment, Interest Savings, Loan Tenure Reduction, Loan Management Tool, EMI Calculator">
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Loan Prepayment Calculator",
+  "url": "https://yourbesttool.com/loan-prepayment-calculator.html",
+  "description": "Calculate interest savings and reduced tenure for part or full prepayments on loans including Home, Personal, and Car Loans.",
+  "applicationCategory": "FinanceApplication",
+  "creator": {
+    "@type": "Organization",
+    "name": "YourBestTool.com"
+  },
+  "operatingSystem": "Web",
+  "featureList": [
+    "Part Prepayment Calculation",
+    "Full Prepayment / Foreclosure",
+    "Interest Savings Estimation",
+    "Loan Tenure Reduction",
+    "Home Loan Prepayment",
+    "Personal Loan Prepayment",
+    "Car Loan Prepayment",
+    "EMI Calculation"
+  ]
+}
+</script>
+
+<style>
+body { margin:0; font-family:'Orbitron', sans-serif; background:#0a0a0a; color:#e0e0e0; }
+header, footer { text-align:center; padding:1rem; background:#111; color:#0ff; }
+h1 { font-size:2rem; color:#0ff; margin:0; }
+h2 { color:#0ff; font-size:1.2rem; margin:0.5rem 0; }
+.container { width:90%; max-width:700px; margin:auto; padding:1rem; text-align:center; }
+label { display:block; margin-top:0.5rem; font-size:0.9rem; color:#0ff; text-align:left; }
+input, select, button { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:8px; border:1px solid #0ff; background:#1a1a1a; color:#0ff; font-size:1rem; box-sizing:border-box; }
+button { cursor:pointer; transition:0.3s; }
+button:hover { box-shadow:0 0 15px #0ff; transform:scale(1.05); }
+#ad-container { margin:1rem 0; background:#222; color:#777; padding:1rem; border-radius:6px; }
+#result { margin-top:1rem; padding:1rem; background:#111; border-radius:8px; text-align:left; overflow-x:auto; }
+.explanation { margin-top:2rem; padding:1rem; background:#111; border-radius:8px; text-align:left; line-height:1.5; }
+@media(max-width:480px){
+  h1 { font-size:1.5rem; }
+  h2 { font-size:1rem; }
+  input, select, button { font-size:0.9rem; padding:0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Loan Prepayment Calculator</h1>
+<h2>Part & Full Prepayment - Calculate Savings & Reduced Tenure</h2>
+<p><a href="index.html" style="color:#0ff;">← Back to Home</a></p>
+</header>
+
+<main class="container">
+
+<div id="ad-container">AdSense Placeholder - Top</div>
+
+<label for="loan-amount">Outstanding Loan Amount (₹):</label>
+<input type="number" id="loan-amount" placeholder="Enter outstanding principal">
+
+<label for="rate">Annual Interest Rate (%):</label>
+<input type="number" id="rate" placeholder="Enter interest rate">
+
+<label for="remaining-tenure">Remaining Tenure (Months):</label>
+<input type="number" id="remaining-tenure" placeholder="Enter remaining tenure in months">
+
+<label for="prepayment-type">Prepayment Type:</label>
+<select id="prepayment-type">
+  <option value="part">Part Prepayment</option>
+  <option value="full">Full Prepayment</option>
+</select>
+
+<label for="prepayment-amount">Prepayment Amount (₹) - For Part Prepayment:</label>
+<input type="number" id="prepayment-amount" placeholder="Enter part prepayment amount" value="0">
+
+<button id="calculateBtn">Calculate Savings</button>
+
+<div id="result" aria-label="Prepayment Calculation Result"></div>
+
+<div id="ad-container">AdSense Placeholder - Middle</div>
+
+<div class="explanation">
+<h3>Understanding Loan Prepayment</h3>
+<p>Loan prepayment allows you to pay off a portion or the full outstanding loan before the scheduled tenure ends. This calculator helps you understand potential interest savings and reduced loan tenure.</p>
+
+<h4>Types of Prepayment:</h4>
+<ul>
+<li><strong>Part Prepayment:</strong> Paying extra towards principal without closing the loan, reducing interest and potentially shortening tenure.</li>
+<li><strong>Full Prepayment / Foreclosure:</strong> Paying the entire remaining loan amount to close the loan account early.</li>
+</ul>
+
+<h4>Benefits of Prepayment:</h4>
+<ul>
+<li>Interest savings over the remaining tenure.</li>
+<li>Reduced loan tenure and faster debt clearance.</li>
+<li>Improved financial flexibility and peace of mind.</li>
+<li>Potentially better credit score.</li>
+</ul>
+
+<h4>Considerations & Disadvantages:</h4>
+<ul>
+<li>Prepayment charges may apply, especially for fixed-rate loans.</li>
+<li>Opportunity cost of funds used for prepayment instead of investment.</li>
+<li>Potential loss of tax benefits on loans like home loans.</li>
+<li>Ensure liquidity before making large prepayments.</li>
+</ul>
+
+<p>Use this calculator to make informed decisions about prepaying your Home Loan, Personal Loan, or Car Loan, balancing savings and financial goals effectively.</p>
+</div>
+
+</main>
+
+<footer>
+<p>© 2025 YourBestTool.com - Free Finance Tools</p>
+</footer>
+
+<script>
+const loanInput = document.getElementById('loan-amount');
+const rateInput = document.getElementById('rate');
+const tenureInput = document.getElementById('remaining-tenure');
+const prepaymentType = document.getElementById('prepayment-type');
+const prepaymentAmount = document.getElementById('prepayment-amount');
+const calculateBtn = document.getElementById('calculateBtn');
+const resultDiv = document.getElementById('result');
+
+function calculateEMI(P, R, N){
+    const monthlyRate = R / (12*100);
+    return P*monthlyRate/(1 - Math.pow(1+monthlyRate, -N));
+}
+
+calculateBtn.addEventListener('click', ()=>{
+    const P = parseFloat(loanInput.value) || 0;
+    const R = parseFloat(rateInput.value) || 0;
+    const N = parseInt(tenureInput.value) || 0;
+    const type = prepaymentType.value;
+    const partAmount = parseFloat(prepaymentAmount.value) || 0;
+
+    if(!P || !R || !N) return alert('Please enter all values');
+
+    const emi = calculateEMI(P,R,N);
+    let savings=0, newTenure=N;
+
+    if(type==='full'){
+        savings = (emi*N - P);
+        newTenure = 0;
+    } else {
+        // For part prepayment, assume prepayment reduces principal
+        const newPrincipal = P - partAmount;
+        const newEMI = calculateEMI(newPrincipal,R,N);
+        savings = (emi*N - newEMI*N - partAmount);
+    }
+
+    resultDiv.innerHTML = `
+        <h3>Prepayment Result (${type.charAt(0).toUpperCase()+type.slice(1)})</h3>
+        <p><strong>Current EMI:</strong> ₹${emi.toFixed(2)}</p>
+        <p><strong>Estimated Interest Savings:</strong> ₹${savings.toFixed(2)}</p>
+        <p><strong>New Loan Tenure (Months):</strong> ${newTenure}</p>
+    `;
+});
+</script>
+
+</body>
+</html>

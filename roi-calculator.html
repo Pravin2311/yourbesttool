@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROI Calculator - Investment Return, Annualized ROI, Profit Analysis | YourBestTool</title>
+<meta name="description" content="Calculate your ROI, annualized ROI, and investment returns with our free online ROI Calculator. Track, analyze, and optimize profits from stocks, real estate, mutual funds, and business investments.">
+<meta name="keywords" content="ROI Calculator, Return on Investment, Annualized ROI, Investment Profit Calculator, Business ROI Analysis, Stock ROI Calculator, Mutual Fund ROI, Real Estate ROI, ROI Tracking, Financial ROI Tool">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "ROI Calculator",
+  "url": "https://yourbesttool.com/roi-calculator.html",
+  "description": "Calculate ROI, annualized ROI, and investment returns for stocks, real estate, mutual funds, and business investments.",
+  "provider": {
+    "@type": "Organization",
+    "name": "YourBestTool.com"
+  },
+  "featureList": [
+    "Standard ROI Calculation",
+    "Annualized ROI Calculation",
+    "Profit Analysis",
+    "Investment Planning",
+    "Financial Decision Support"
+  ]
+}
+</script>
+
+<style>
+body { margin:0; font-family:'Orbitron', sans-serif; background:#0a0a0a; color:#e0e0e0; }
+header, footer { text-align:center; padding:1rem; background:#111; color:#0ff; }
+h1 { font-size:2rem; color:#0ff; margin:0; }
+h2 { font-size:1.2rem; color:#0ff; margin:0.5rem 0; }
+.container { width:90%; max-width:700px; margin:auto; padding:1rem; text-align:center; }
+label { display:block; margin-top:0.5rem; font-size:0.9rem; color:#0ff; text-align:left; }
+input, select, button { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:8px; border:1px solid #0ff; background:#1a1a1a; color:#0ff; font-size:1rem; box-sizing:border-box; }
+button { cursor:pointer; transition:0.3s; }
+button:hover { box-shadow:0 0 15px #0ff; transform:scale(1.05); }
+#ad-container { margin:1rem 0; background:#222; color:#777; padding:1rem; border-radius:6px; }
+#result { margin-top:1rem; padding:1rem; background:#111; border-radius:8px; text-align:left; overflow-x:auto; }
+.explanation { margin-top:2rem; padding:1rem; background:#111; border-radius:8px; text-align:left; line-height:1.5; }
+@media(max-width:480px){
+  h1 { font-size:1.5rem; }
+  h2 { font-size:1rem; }
+  input, select, button { font-size:0.9rem; padding:0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>ROI Calculator</h1>
+<h2>Calculate Return on Investment, Annualized ROI, and Profit</h2>
+<p><a href="index.html">← Back to Home</a></p>
+</header>
+
+<main class="container">
+
+<div id="ad-container">AdSense Placeholder - Top</div>
+
+<label for="investment">Initial Investment (₹):</label>
+<input type="number" id="investment" placeholder="Enter your investment amount">
+
+<label for="profit">Net Profit / Gain (₹):</label>
+<input type="number" id="profit" placeholder="Enter net profit earned">
+
+<label for="timeframe">Investment Duration (Years):</label>
+<input type="number" id="timeframe" placeholder="Enter duration in years">
+
+<button id="calculateBtn">Calculate ROI</button>
+
+<div id="result" aria-label="ROI Calculation Result"></div>
+
+<div class="explanation">
+<h3>Understanding ROI (Return on Investment)</h3>
+<p>Return on Investment (ROI) is a key metric to evaluate the profitability of investments in business, stocks, real estate, mutual funds, or other assets. This calculator helps you:</p>
+<ul>
+<li><strong>Measure Profitability:</strong> Compare net gain vs. cost.</li>
+<li><strong>Make Informed Decisions:</strong> Evaluate multiple investment options.</li>
+<li><strong>Track Performance:</strong> Monitor ROI over time.</li>
+<li><strong>Annualized ROI:</strong> Assess yearly returns to compare different durations.</li>
+<li><strong>Financial Planning:</strong> Forecast gains and plan investments.</li>
+</ul>
+<p><strong>ROI Formula:</strong> ROI (%) = (Net Profit / Investment Cost) × 100</p>
+<p><strong>Annualized ROI Formula:</strong> Annualized ROI (%) = [(1 + ROI/100)^(1/Years) - 1] × 100</p>
+</div>
+
+<div id="ad-container">AdSense Placeholder - Bottom</div>
+
+</main>
+
+<footer>
+<p>© 2025 YourBestTool.com</p>
+</footer>
+
+<script>
+const investmentInput = document.getElementById('investment');
+const profitInput = document.getElementById('profit');
+const timeInput = document.getElementById('timeframe');
+const calculateBtn = document.getElementById('calculateBtn');
+const resultDiv = document.getElementById('result');
+
+calculateBtn.addEventListener('click', ()=>{
+  const investment = parseFloat(investmentInput.value);
+  const profit = parseFloat(profitInput.value);
+  const years = parseFloat(timeInput.value);
+
+  if(!investment || !profit || years <=0){
+    resultDiv.innerHTML = "<p>Please enter valid investment, profit, and timeframe.</p>";
+    return;
+  }
+
+  const roi = (profit / investment) * 100;
+  const annualizedROI = (Math.pow(1 + roi/100, 1/years) -1) * 100;
+
+  resultDiv.innerHTML = `
+    <h3>ROI Results</h3>
+    <p><strong>Investment Amount:</strong> ₹${investment.toFixed(2)}</p>
+    <p><strong>Net Profit:</strong> ₹${profit.toFixed(2)}</p>
+    <p><strong>Standard ROI:</strong> ${roi.toFixed(2)}%</p>
+    <p><strong>Annualized ROI:</strong> ${annualizedROI.toFixed(2)}%</p>
+  `;
+});
+</script>
+
+</body>
+</html>

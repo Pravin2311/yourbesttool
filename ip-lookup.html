@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All-in-One IP Lookup Tool - IP Geolocation, ISP, VPN Detection | YourBestTool</title>
+<meta name="description" content="Check IP addresses with our free All-in-One IP Lookup Tool. Find geolocation, ISP, ASN, reverse DNS, VPN/proxy detection, blacklist status, and network info instantly.">
+<meta name="keywords" content="IP Lookup, IP Address Locator, IP Geolocation, ISP Details, ASN Lookup, Reverse IP Lookup, VPN Detection, Proxy Detection, IP Reputation, Network Tools, Online IP Search, IP Info Tool">
+
+<!-- Schema.org JSON-LD for IP Lookup Tool -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "All-in-One IP Lookup Tool",
+  "url": "https://yourbesttool.com/ip-lookup.html",
+  "description": "Check IP addresses instantly and find geolocation, ISP, ASN, reverse DNS, VPN/proxy detection, blacklist status, and network info.",
+  "applicationCategory": "NetworkApplication",
+  "creator": {
+    "@type": "Organization",
+    "name": "YourBestTool.com"
+  },
+  "operatingSystem": "Web",
+  "featureList": [
+    "IP Geolocation",
+    "ISP & ASN Info",
+    "Reverse DNS Lookup",
+    "VPN / Proxy Detection",
+    "IP Reputation & Threat Level",
+    "Network Information"
+  ]
+}
+</script>
+
+<style>
+body { margin:0; font-family:'Orbitron', sans-serif; background:#0a0a0a; color:#e0e0e0; }
+header, footer { text-align:center; padding:1rem; background:#111; color:#0ff; }
+h1 { font-size:2rem; color:#0ff; margin:0; }
+h2 { font-size:1.2rem; color:#0ff; margin:0.5rem 0; }
+.container { width:90%; max-width:800px; margin:auto; padding:1rem; text-align:center; }
+input, button { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:8px; border:1px solid #0ff; background:#1a1a1a; color:#0ff; font-size:1rem; box-sizing:border-box; }
+button { cursor:pointer; transition:0.3s; }
+button:hover { box-shadow:0 0 15px #0ff; transform:scale(1.05); }
+#ad-container { margin:1rem 0; background:#222; color:#777; padding:1rem; border-radius:6px; }
+#result { margin-top:1rem; padding:1rem; background:#111; border-radius:8px; text-align:left; overflow-x:auto; line-height:1.5; }
+.explanation { margin-top:2rem; padding:1rem; background:#111; border-radius:8px; text-align:left; line-height:1.5; }
+@media(max-width:480px){
+  h1 { font-size:1.5rem; }
+  h2 { font-size:1rem; }
+  input, button { font-size:0.9rem; padding:0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>All-in-One IP Lookup Tool</h1>
+<h2>Find IP Geolocation, ISP, VPN/Proxy, ASN, Reverse IP & Reputation Instantly</h2>
+<p><a href="index.html" style="color:#0ff;">← Back to Home</a></p>
+</header>
+
+<main class="container">
+
+<div id="ad-container">AdSense Placeholder - Top</div>
+
+<input type="text" id="ip-input" placeholder="Enter IP address or leave blank for your IP">
+<button id="lookupBtn">Lookup IP Info</button>
+
+<div id="result" aria-label="IP Lookup Result"></div>
+
+<div class="explanation">
+<h3>Understanding IP Lookup and Network Information</h3>
+<p>An IP lookup allows you to find detailed information about any IP address, including its geographical location, ISP, ASN, reverse DNS, and reputation. This tool is essential for:</p>
+<ul>
+<li><strong>Security & Fraud Detection:</strong> Identify suspicious IP addresses, VPNs, proxies, or blacklisted IPs.</li>
+<li><strong>Network Troubleshooting:</strong> Find ISP details, connection type, and latency info to troubleshoot internet issues.</li>
+<li><strong>Web Analytics & Personalization:</strong> Geolocate visitors for targeted content delivery or analytics.</li>
+<li><strong>Understanding Your IP:</strong> Know your public IP, location, timezone, and ISP.</li>
+<li><strong>Reverse IP Lookup:</strong> Discover domains or websites hosted on the same IP.</li>
+<li><strong>Educational & Professional Use:</strong> IT professionals, network engineers, and cybersecurity enthusiasts use IP lookups to analyze network traffic and connectivity.</li>
+</ul>
+<p>With this all-in-one tool, you can quickly check IP details without needing multiple websites. It is accurate, fast, and ideal for students, developers, security analysts, and everyday users.</p>
+</div>
+
+<div id="ad-container">AdSense Placeholder - Middle</div>
+
+</main>
+
+<footer>
+<p>© 2025 YourBestTool.com - Free Online Network & Utility Tools</p>
+</footer>
+
+<script>
+// Simple IP info fetch using a free API
+document.getElementById('lookupBtn').addEventListener('click', async () => {
+    const ip = document.getElementById('ip-input').value.trim();
+    const url = ip ? `https://ipapi.co/${ip}/json/` : `https://ipapi.co/json/`;
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = "<p>Fetching IP information...</p>";
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        if(data.error){
+            resultDiv.innerHTML = `<p>Error: ${data.reason}</p>`;
+            return;
+        }
+        resultDiv.innerHTML = `
+        <h3>IP Information for ${data.ip}</h3>
+        <p><strong>Country:</strong> ${data.country_name} (${data.country})</p>
+        <p><strong>Region/State:</strong> ${data.region}</p>
+        <p><strong>City:</strong> ${data.city}</p>
+        <p><strong>ZIP Code:</strong> ${data.postal}</p>
+        <p><strong>Latitude/Longitude:</strong> ${data.latitude}, ${data.longitude}</p>
+        <p><strong>Timezone:</strong> ${data.timezone}</p>
+        <p><strong>ISP:</strong> ${data.org}</p>
+        <p><strong>ASN:</strong> ${data.asn}</p>
+        <p><strong>IP Version:</strong> ${data.version}</p>
+        <p><strong>Reverse DNS:</strong> ${data.reverse || 'N/A'}</p>
+        <p><strong>VPN/Proxy:</strong> ${data.proxy ? 'Yes' : 'No'}</p>
+        <p><strong>IP Reputation:</strong> ${data.threat_level || 'Unknown'}</p>
+        `;
+    } catch(err){
+        resultDiv.innerHTML = `<p>Error fetching IP data. Try again.</p>`;
+        console.error(err);
+    }
+});
+</script>
+
+</body>
+</html>
